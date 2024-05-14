@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_ducklist">
+
+    <fragment
+        android:id="@+id/navigation_ducklist"
+        android:name="com.example.restfulapp.ui.ducklist.DucklistFragment"
+        android:label="To do list"
+        tools:layout="@layout/fragment_ducklist" >
+        <action
+            android:id="@+id/action_navigation_ducklist_to_navigation_duckinfo"
+            app:destination="@id/navigation_duckinfo" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_duckinfo"
+        android:name="com.example.restfulapp.ui.duckinfo.DuckinfoFragment"
+        android:label="Action - detail information"
+        tools:layout="@layout/fragment_duckinfo" >
+        <action
+            android:id="@+id/action_navigation_duckinfo_to_navigation_ducklist"
+            app:destination="@id/navigation_ducklist" />
+        <argument
+            android:name="duckinfo"
+            app:argType="java.util.ArrayList" />
+    </fragment>
+
+</navigation>
