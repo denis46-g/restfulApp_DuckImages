@@ -39,13 +39,14 @@ class DuckinfoFragment : Fragment() {
 
         if(duckinfo?.get(0)?.endsWith(".jpg") == true)
         {
-            if(duckinfo?.get(1) == "true")
-                Picasso.get().load("https://random-d.uk/api/http/"+duckinfo?.get(0)).into(binding.imageView)
+            if(duckinfo?.get(1) == "true"){
+                Picasso.get().load("https://random-d.uk/api/http/"+duckinfo?.get(0)).error(R.drawable.error).fit().into(binding.imageView)
+            }
             else
-                Picasso.get().load("https://random-d.uk/api/"+duckinfo?.get(0)).into(binding.imageView)
+                Picasso.get().load("https://random-d.uk/api/"+duckinfo?.get(0)).error(R.drawable.error).fit().into(binding.imageView)
         }
         else
-            Glide.with(this).asGif().load("https://random-d.uk/api/"+duckinfo?.get(0)).into(binding.imageView)
+            Glide.with(this).asGif().load("https://random-d.uk/api/"+duckinfo?.get(0)).error(R.drawable.error).into(binding.imageView)
 
         // переход со страницы описания дела на главную
         val buttonBack2 = root.findViewById<Button>(R.id.buttonBack2)
